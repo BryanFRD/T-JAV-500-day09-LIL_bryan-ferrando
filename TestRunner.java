@@ -46,13 +46,14 @@ public class TestRunner {
                     }
                 }
                 Test test = method.getAnnotation(Test.class);
+                System.out.println(test.name());
                 if(test.enabled()){
-                    System.out.println("Test executed");
                     try {
                         method.invoke(null);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    System.out.println("Test executed");
                 }
 
                 for(Method afterMethod : afterMethods){
