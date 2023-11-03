@@ -1,11 +1,11 @@
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-@Target(java.lang.annotation.ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
 public @interface Test {
-
-    String name();
-    boolean enabled() default true;
-
+    public String name();
+    public boolean enabled() default true;
 }
