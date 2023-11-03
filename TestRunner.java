@@ -30,7 +30,7 @@ public class TestRunner {
 
         for(Method method : beforeClassMethods){
             try {
-                method.invoke(clazz.newInstance());
+                method.invoke(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -40,7 +40,7 @@ public class TestRunner {
             if(method.isAnnotationPresent(Test.class)){
                 for (Method beforeMethod : beforeMethods){
                     try {
-                        beforeMethod.invoke(clazz.newInstance());
+                        beforeMethod.invoke(null);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -49,7 +49,7 @@ public class TestRunner {
                 System.out.println(test.name());
                 if(test.enabled()){
                     try {
-                        method.invoke(clazz.newInstance());
+                        method.invoke(null);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -57,7 +57,7 @@ public class TestRunner {
 
                 for(Method afterMethod : afterMethods){
                     try {
-                        afterMethod.invoke(clazz.newInstance());
+                        afterMethod.invoke(null);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -67,7 +67,7 @@ public class TestRunner {
 
         for(Method method : afterClassMethods){
             try {
-                method.invoke(clazz.newInstance());
+                method.invoke(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
